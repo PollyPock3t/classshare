@@ -96,25 +96,40 @@ for (i = 0; i < acc.length; i++) {
       <img src="http://www.simpletuition.com/wp-content/uploads/2013/09/loan-obligations.jpg" />
       </div>
       <h3>Jane Do</h3>
-      <p>Lorem ipsum dolor sit amet...</p>
+
+     <img class="badgeButton" src="images/Cal.png">
+      <img class="badgeButton" src="images/check.png">
+      <p>Currently enrolled in: Biology</p>
       </li>
     </li>
+
+  <hr>
       
     <li>
       <div class="circular--portrait2">
         <img src="http://www.acfe.com/uploadedImages/ACFE_Website/Content/images/membership-certification/graduate-member.jpg" />
       </div>
         <h3>John Smith</h3>
-        <p>Lorem ipsum dolor sit amet...</p>
+      <img class="badgeButton" src="images/key.png">
+      <img class="badgeButton" src="images/check.png">
+
+        <p>Currently enrolled in: Economics</p>
     </li>
+
+    <hr>
  
     <li>
       <div class="circular--portrait2">
         <img src="http://alumni-umich-edu.alumniassociaito.netdna-cdn.com/wp-content/uploads/2015/12/International-Student-Recruitment-Promo.jpg" />
       </div>
       <h3>Rachel Red</h3>
-      <p>Lorem ipsum dolor sit amet...</p>
+
+      <img class="badgeButton" src="images/key.png">
+      <img class="badgeButton" src="images/upload.png">
+
+      <p>Currently enrolled in: Physics</p>
     </li>
+</ul>
 
 </div>
 
@@ -125,12 +140,53 @@ for (i = 0; i < acc.length; i++) {
 <!-- Buttons for request -->
 
 
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Request</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">Study Group</a>
+    <a href="#">Ask Everyone</a>
+    <a href="#">Ask Your Group</a>
+    <a href="#">Ask Your Friend</a>
+  </div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script> 
+
+</div>
+</div>
 </div>
 
- <div class="col-md-8">
-  
 
-  </div>
+<div class="Cal">
+
+<div class="col-md-8">
+
+ <h1> test </h1>
+
+
+  
+</div>
+</div>
 
 
 	<script src="js/jquery.2.2.4.min.js"></script>
