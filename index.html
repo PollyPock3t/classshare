@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> App Boiler Plate </title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+	
+	<!-- ADD AWESOME THINGS HERE -->
+	<? echo "Hello World!"; ?>
+
+<div class="row">
+<div class="container1" style="padding: 20px;">
+
+<!-- Sidebar -->
+  <div class="col-md-4">
+
+  <!-- Profile photo -->
+
+  <div class="middle">
+  <div class="circular--portrait">
+  <img src="http://www.nhsbsa.nhs.uk/i/Students/welcome.jpg" />
+
+  </div>
+ </div>
+
+
+<hr>
+  <!-- Side to side scroll -->
+
+
+
+
+
+  <div class="classInfo">
+<h2> College: NYU </h2>
+  <h1> Class name: General Physics II </h1>
+
+<button class="accordion">Info</button>
+<div class="panel">
+  <p>This course is an introduction to electricity and magnetism, light, geometrical and wave optics. Many concepts from General Physics I will be used in this course such as: position, velocity, acceleration, force, Newton’s laws of motion, work and energy. The course uses high school algebra, geometry and trigonometry, vectors and vector arithmetic, and some calculus. Calculus will be used in class but sparingly on exams. The algebra, geometry, and trig are absolutely essential. If some time has elapsed since your last math course, or you feel a lack of confidence in this area, you are strongly urged to study math intensively before we get too deeply into the physics course. The course has lecture, online homework and laboratory portions.</p>
+</div>
+
+<button class="accordion">Time</button>
+<div class="panel">
+  <h1>Times: Tuesday 2:00 – 5:00pm (Lec)</h1>
+	<p>January 31 to May 2</p>
+	<p>Auditorium NYU Sydney Academic Centre</p>
+	<p>Science House: 157-161 Gloucester Street, The Rocks 2000</p>
+
+<h1>Tuesday 5:30 – 6:30pm (Rec)</h1> 
+	<p>January 31 to May 2</p> 
+	<p>Auditorium NYU Sydney Academic Centre</p> 
+	<p>Science House: 157-161 Gloucester Street, The Rocks 2000</p>
+
+	<h1>Wednesday 4:00 – 6:00pm (Lab) </h1>
+	<p>February 1 to May 4</p>
+	<p>UTS Science Lab CB04.03.510 (Building 4, level 3, room 510).</p> 
+	<p>Building 4, 745 Harris Street, Ultimo, NSW 2007</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
+
+
+</div>
+<hr>
+
+<!-- List scroll -->
+
+<div>
+  <ul>
+    <li>
+
+      <div class="circular--portrait2">
+      <img src="http://www.simpletuition.com/wp-content/uploads/2013/09/loan-obligations.jpg" />
+      </div>
+      <h3>Jane Do</h3>
+      <p>Lorem ipsum dolor sit amet...</p>
+      </li>
+    </li>
+      
+    <li>
+      <div class="circular--portrait2">
+        <img src="http://www.acfe.com/uploadedImages/ACFE_Website/Content/images/membership-certification/graduate-member.jpg" />
+      </div>
+        <h3>John Smith</h3>
+        <p>Lorem ipsum dolor sit amet...</p>
+    </li>
+ 
+    <li>
+      <div class="circular--portrait2">
+        <img src="http://alumni-umich-edu.alumniassociaito.netdna-cdn.com/wp-content/uploads/2015/12/International-Student-Recruitment-Promo.jpg" />
+      </div>
+      <h3>Rachel Red</h3>
+      <p>Lorem ipsum dolor sit amet...</p>
+    </li>
+
+</div>
+
+
+
+<hr>
+
+<!-- Buttons for request -->
+
+
+</div>
+
+ <div class="col-md-8">
+  
+
+  </div>
+
+
+	<script src="js/jquery.2.2.4.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/custom.js"></script>
+</body>
+</html>
