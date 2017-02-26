@@ -1,39 +1,305 @@
 <!DOCTYPE html>
 <html>
-<style>
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+<head>
+    <link rel='stylesheet' href='style.css'/>
+    <script src='script.js'></script>
+
+    <style>
+    .day {
+  float: left;
+  width: 95px;
+  height: 280px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
 }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
+.current {
+  background: #ccccff;
+}
 
-    /* Position the tooltip */
+.normal {
+    background: #66ff33;
+}
+
+/* Dropdown Add Button */
+.dropbtnAdd {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtnAdd:hover, .dropbtnAdd:focus {
+    background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdownAdd {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdownAdd-content {
+    display: none;
     position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-.tooltip:hover .tooltiptext {
-    visibility: visible;
+/* Links inside the dropdown */
+.dropdownAdd-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
+
+/* Change color of dropdown links on hover */
+.dropdownAdd-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+/* Dropdown View Button */
+.dropbtnView {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtnView:hover, .dropbtnView:focus {
+    background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdownView {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdownView-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdownView-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdownView-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
 </style>
-<body style="text-align:center;">
 
-<p>Move the mouse over the text below:</p>
+</head>
 
-<div class="tooltip">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
+
+<body>
+<!--March 1st-->
+<div class="day current">
+
+    <h5>March 1st</h5>
+    
+    <h7 id="banner"></h7>
+    
+    <button onclick="createFunction()">New Event</button>
+    <!--upload button-->
+    <div class="dropdownAdd">
+    <!--upload image-->
+    <button onclick="myFunctionAdd()" class="dropbtnAdd"> <img src="http://www.iconarchive.com/download/i89270/icons8/ios7/Very-Basic-Upload.ico"></button>
+    <!--upload dropdown-->
+    <div id="myDropdownAdd" class="dropdownAdd-content">
+        <!--notes-->
+        <button onclick="myFunctionAddNotes()"> <img src = "http://simpleicon.com/wp-content/uploads/pencil.png"> hspace="10"></button>
+        <!--video-->
+        <button onclick="myFunctionAddVideo()"> <img src = "https://image.freepik.com/free-icon/button-play-radio-or-video_318-30277.jpg" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+        <!--audio-->
+        <button onclick="myFunctionAddAudio()"> <img src = "https://cdn4.iconfinder.com/data/icons/education-bold-line-1/49/01-512.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+  </div>
+</div>
+    
+    <!--view button-->
+    <div class="dropdownView">
+    <!--view icon-->
+  <button onclick="myFunctionView()" class="dropbtnView"> <img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-128.png" style="width:45pm;height:45px;"></button> <!--This should probably be replaced with an icon too-->
+  <!--view dropdown-->
+  <div id="myDropdownView" class="dropdownView-content">
+    <!--notes-->
+    <button> <img src = "http://simpleicon.com/wp-content/uploads/pencil.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    <div id="viewNotes">
+        <h8 id=notesList></h8>
+    </div>
+    <!--video-->
+    <button> <img src = "https://image.freepik.com/free-icon/button-play-radio-or-video_318-30277.jpg" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    <div id="viewVideo">
+        <h8 id=videoList></h8>
+    </div>
+    <!--audio-->
+    <button> <img src = "https://cdn4.iconfinder.com/data/icons/education-bold-line-1/49/01-512.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    <div id="viewAudio">
+        <h8 id=audioList></h8>
+    </div>
+  </div>
+</div>
+    
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+    
+
+
 </div>
 
-<p>Note that the position of the tooltip text isn't very good. Go back to the tutorial and continue reading on how to position the tooltip in an desirable way.</p>
+<div class="day normal">
+    <h5>March 2nd</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 3rd</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 4th</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 5th</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 6th</h5>
+    <h7>Lab Day</h7>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 7th</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<script type="text/javascript">
+    
+    /* When the user clicks on the Add button, 
+toggle between hiding and showing the dropdown content */
+function myFunctionAdd() {
+    document.getElementById("myDropdownAdd").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtnAdd')) {
+
+    var dropdowns = document.getElementsByClassName("dropdownAdd-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/* When the user clicks on the view button, 
+toggle between hiding and showing the dropdown content */
+function myFunctionView() {
+    document.getElementById("myDropdownView").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtnView')) {
+
+    var dropdowns = document.getElementsByClassName("dropdownView-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function createFunction() {
+        var event = prompt("Please type the event name");
+        if (event != null) {
+            document.getElementById("banner").innerHTML = event;
+        
+        }
+    }
+
+    function myFunctionAddNotes() {
+        var sourceNotes = prompt("Please type the document url")
+        if (sourceNotes != null) {
+            document.getElementById("notesList").innerHTML = sourceNotes;
+    }
+    }
+    
+    function myFunctionAddVideo() {
+        var sourceVideo = prompt("Please type the video url")
+        if (sourceVideo != null) {
+            document.getElementById("videoList").innerHTML = sourceVideo;
+    }
+    }
+    
+    function myFunctionAddAudio() {
+        var sourceAudio = prompt("Please type the audio file url")
+        if (sourceAudio != null) {
+            document.getElementById("audioList").innerHTML = sourceAudio;
+    }
+    }
+</script>
 
 </body>
 </html>
+

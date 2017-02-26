@@ -50,11 +50,22 @@ li:hover {
 
   <!-- Profile photo -->
 
+  <h1>JANE DOE</h1>
+  <p>Level: 2 </p>
+
   <div class="middle">
   <div class="circular--portrait">
   <img src="http://www.nhsbsa.nhs.uk/i/Students/welcome.jpg" />
-
   </div>
+
+    <img class="badgeButton" src="images/Cal.png">
+    <p id="schedulePoints"> 100 pnts Scheduler </p>
+
+    <img class="badgeButton" src="images/check.png">
+    <p> 120 pnts Responder </p>
+
+
+
  </div>
 
 
@@ -122,12 +133,16 @@ for (i = 0; i < acc.length; i++) {
       <div class="circular--portrait2">
       <img src="http://www.simpletuition.com/wp-content/uploads/2013/09/loan-obligations.jpg" />
       </div>
-      <h3>Jane Do</h3>
+
+      <h3>Jasmin Grain</h3>
+      <p> Level: 10 </p>
       <p>Badges </p>
 
     <img class="badgeButton" src="images/Cal.png">
+    <p> Schedule Badge: 700 pnts  </p>
 
     <img class="badgeButton" src="images/check.png">
+    <p> Responder Badge: 350 pnts </p>
       </li>
     </li>
 
@@ -138,8 +153,16 @@ for (i = 0; i < acc.length; i++) {
         <img src="http://www.acfe.com/uploadedImages/ACFE_Website/Content/images/membership-certification/graduate-member.jpg" />
       </div>
         <h3>John Smith</h3>
+
+        <p> Level: 8 </p>
       <img class="badgeButton" src="images/key.png">
+      <p> Administrator Badge: 600 pnts </p>
+
+
       <img class="badgeButton" src="images/check.png">
+      <p> Responder Badge: 225 pnts </p>
+
+
 
     </li>
 
@@ -150,9 +173,13 @@ for (i = 0; i < acc.length; i++) {
         <img src="http://alumni-umich-edu.alumniassociaito.netdna-cdn.com/wp-content/uploads/2015/12/International-Student-Recruitment-Promo.jpg" />
       </div>
       <h3>Rachel Red</h3>
+      <p> Level: 0 </p>
 
-      <img class="tooltip" src="images/key.png">
+
       <img class="badgeButton" src="images/upload.png">
+
+      <p> Responder Badge: 50 pnts </p>
+
 
     </li>
 </ul>
@@ -207,23 +234,281 @@ window.onclick = function(event) {
 <div class="col-md-8">
 <div class="Cal">
 
-  <h1>Cal</h1>
+<!-- Cal -->
+  <h1>Calendar</h1>
+
+  <!--March 1st-->
+<div class="day current">
+
+    <h5>March 1st</h5>
+    
+    <h7 id="banner"></h7>
+    
+    <button onclick="createFunction()">+</button>
+
+
+   <!--upload button-->
+
+   <div class="buttonSpace">
+    <div class="dropdownAdd">
+    <!--upload image-->
+    <button onclick="myFunctionAdd()" class="dropbtnAdd"> <img src="https://image.freepik.com/free-icon/upload-arrow_318-26670.jpg" style="width:35pm;height:25px;"></button>
+    <!--upload dropdown-->
+    <div id="myDropdownAdd" class="dropdownAdd-content">
+        <!--notes-->
+        <button onclick="myFunctionAddNotes()"> <img src = "http://simpleicon.com/wp-content/uploads/pencil.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+        <!--video-->
+        <button onclick="myFunctionAddVideo()"> <img src = "https://image.freepik.com/free-icon/button-play-radio-or-video_318-30277.jpg" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+        <!--audio-->
+        <button onclick="myFunctionAddAudio()"> <img src = "https://cdn4.iconfinder.com/data/icons/education-bold-line-1/49/01-512.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    </div>
+  </div>
+</div>
+    
+    <!--view button-->
+
+   <div class="buttonSpace">
+
+    <div class="dropdownView">
+    <!--view icon-->
+  <button onclick="myFunctionView()" class="dropbtnView"> <img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-128.png" style="width:45pm;height:45px;"></button> <!--This should probably be replaced with an icon too-->
+  <!--view dropdown-->
+  <div id="myDropdownView" class="dropdownView-content">
+    <!--notes-->
+    <button> <img src = "http://simpleicon.com/wp-content/uploads/pencil.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    <div id="viewNotes">
+        <h8 id=notesList></h8>
+    </div>
+    <!--video-->
+    <button> <img src = "https://image.freepik.com/free-icon/button-play-radio-or-video_318-30277.jpg" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    <div id="viewVideo">
+        <h8 id=videoList></h8>
+    </div>
+    <!--audio-->
+    <button> <img src = "https://cdn4.iconfinder.com/data/icons/education-bold-line-1/49/01-512.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+    <div id="viewAudio">
+        <h8 id=audioList></h8>
+    </div>
+    </div>
+  </div>
+</div>
+    
+    <!--request button-->
+   <div class="buttonSpace">
+
+    <div class="dropdownRequest">
+    <!--request image -- GET!!-->
+    <button onclick="myFunctionRequest()" class="dropbtnRequest"> <img src="https://cdn0.iconfinder.com/data/icons/education-22/48/raised-hand-512.png" style="width:35pm;height:25px;"></button>
+    <!--request dropdown-->
+    <div id="myDropdownRequest" class="dropdownRequest-content">
+        <!--notes-->
+        <button onclick="myFunctionRequestNotes()"> <img src = "http://simpleicon.com/wp-content/uploads/pencil.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+        <!--video-->
+        <button onclick="myFunctionRequestVideo()"> <img src = "https://image.freepik.com/free-icon/button-play-radio-or-video_318-30277.jpg" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+        <!--audio-->
+        <button onclick="myFunctionRequestAudio()"> <img src = "https://cdn4.iconfinder.com/data/icons/education-bold-line-1/49/01-512.png" style="width:35px;height:35px;margin-top:10px;margin-bottom:0px" hspace="10"></button>
+  </div>
+</div>
+</div>
+  <div class="buttonSpace">
+
+    <button class="livestream">Livestream</button>
+    </div>
+    
+</div>    
+
+
+</div>
+
+<div class="day normal">
+    <h5>March 2nd</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 3rd</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 4th</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 5th</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 6th</h5>
+    <h7>Lab Day</h7>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<div class="day normal">
+    <h5>March 7th</h5>
+    <button class="create">New Event</button>
+    <button class="upload">Upload</button>
+    <button class="view">View</button>
+    <button class="request">Request</button>
+    <button class="livestream">Livestream</button>
+</div>
+
+<script type="text/javascript">
+
+var herPoints = 200;    
+ var numberNotesRequests = 0;
+var numberVideoRequests = 0;
+var numberAudioRequests = 0;
+
+/* When the user clicks on the Add button, 
+toggle between hiding and showing the dropdown content */
+function myFunctionAdd() {
+    document.getElementById("myDropdownAdd").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtnAdd')) {
+
+    var dropdowns = document.getElementsByClassName("dropdownAdd-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/* When the user clicks on the view button, 
+toggle between hiding and showing the dropdown content */
+function myFunctionView() {
+    document.getElementById("myDropdownView").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtnView')) {
+
+    var dropdowns = document.getElementsByClassName("dropdownView-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+/* When the user clicks on the request button, 
+toggle between hiding and showing the dropdown content */
+function myFunctionRequest() {
+    document.getElementById("myDropdownRequest").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtnRequest')) {
+
+    var dropdowns = document.getElementsByClassName("dropdownRequest-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function createFunction() {
+        var event = prompt("Please type the event name");
+        if (event != null) {
+            document.getElementById("banner").innerHTML = event;
+        
+        }
+    }
+
+    function myFunctionAddNotes() {
+        var sourceNotes = prompt("Please type the document url")
+        if (sourceNotes != null) {
+            document.getElementById("notesList").innerHTML = sourceNotes;
+    }
+    }
+    
+    function myFunctionAddVideo() {
+        var sourceVideo = prompt("Please type the video url")
+        if (sourceVideo != null) {
+            document.getElementById("videoList").innerHTML = sourceVideo;
+    }
+    }
+    
+    function myFunctionAddAudio() {
+        var sourceAudio = prompt("Please type the audio file url")
+        if (sourceAudio != null) {
+            document.getElementById("audioList").innerHTML = sourceAudio;
+    }
+    }
+    
+    function myFunctionRequestNotes() {
+        numberNotesRequests++;
+        document.getElementById("notesRequests").innerHTML = "There is/are " + numberNotesRequests + " request(s) for notes from this date.";
+    }
+    
+    function myFunctionRequestVideo() {
+        numberVideoRequests++;
+        document.getElementById("videoRequests").innerHTML = "There is/are " + numberVideoRequests + " request(s) for a video from this date.";
+    }
+    
+    function myFunctionRequestAudio() {
+        numberAudioRequests++;
+        document.getElementById("audioRequests").innerHTML = "There is/are " + numberAudioRequests + " request(s) for audio from this date.";
+    }
+</script>
+
+</div>
+</div>
 
 <!-- forum -->
-<h1>Forum</h1>
+
+<h1 style="padding: 20px; margin-left: 50px;">Forum</h1>
   <button onclick="myFunction()">What's up?</button>
 
 <p id="demo"></p>
 <p id="demox"></p>
 
 <script>
-var text = "Hi"
+var text = "John Doe: Does anyone have a good explanation for torque?"
 document.getElementById("demo").innerHTML = text;
 function myFunction() {
     var question = prompt("Please type your question");
     if (question != null) {
         document.getElementById("demo").innerHTML =
-        question;
+        "Jane Doe: " + question;
         document.getElementById("demox").innerHTML =
         text;
         
@@ -235,6 +520,14 @@ function myFunction() {
 
 
   <h1>Requests</h1>
+
+  <!--general requests-->
+<div>
+    <h3>March 1st</h3>
+    <h5 id="notesRequests"></h5>
+    <h5 id="videoRequests"></h5>
+    <h5 id="audioRequests"></h5>
+</div>
 
 </div>
 </div>
@@ -253,6 +546,6 @@ function myFunction() {
 
 	<script src="js/jquery.2.2.4.min.js"></script>
 <!-- 	<script src="js/bootstrap.js"></script> -->
-	<script src="js/custom.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 </body>
 </html>
